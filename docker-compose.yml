@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  themis-proxy:
+    build: .
+    command: mitmdump -p 7999 -s "/usr/src/app/src/addons/inject_js_addon.py"
+    ports:
+      - 7999:7999
+    environment:
+      - THEMIS_PROXY_INJECT_JS=/usr/src/app/src/addons/content.js
+      
